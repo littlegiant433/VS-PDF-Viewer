@@ -54,6 +54,9 @@
     <Compile Include="VS_PDF_ViewerPackage.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\README.md">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <None Include="source.extension.vsixmanifest">
       <SubType>Designer</SubType>
     </None>
@@ -95,6 +98,16 @@
     <Content Include="$(NuGetPackageRoot)pdfiumviewer.native.x86.v8-xfa\**\pdfium.dll">
       <Link>x86\pdfium.dll</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="LICENSE.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Resources\icon.png">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Resources\LICENSE.txt">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
   </ItemGroup>
