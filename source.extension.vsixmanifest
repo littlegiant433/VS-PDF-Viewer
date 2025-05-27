@@ -1,28 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="VS-PDF-Viewer.YourName.12345678-1234-1234-1234-123456789012" Version="1.0.0" Language="en-US" Publisher="littlegiant433" />
+        <Identity Id="VS-PDF-Viewer.YourName.12345678-1234-1234-1234-123456789012" Version="1.0.0" Language="en-US" Publisher="Your Name" />
         <DisplayName>PDF Viewer for Visual Studio</DisplayName>
         <Description xml:space="preserve">View PDF files directly in Visual Studio. Open any PDF file in the editor to read documentation, manuals, and other PDF content without leaving your IDE.</Description>
-        <MoreInfo>https://github.com/littlegiant433/vs-pdf-viewer</MoreInfo>
+        <MoreInfo>https://github.com/yourusername/vs-pdf-viewer</MoreInfo>
         <License>LICENSE.txt</License>
         <Icon>Resources\icon.png</Icon>
-        <PreviewImage>Resources\preview.png</PreviewImage>
+        <!-- Removed PreviewImage line -->
         <Tags>pdf, viewer, document, reader, editor</Tags>
     </Metadata>
     <Installation>
-        <!-- VS 2019 (32-bit) -->
-        <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[16.0, 17.0)">
-            <ProductArchitecture>x86</ProductArchitecture>
-        </InstallationTarget>
-        <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[16.0, 17.0)">
-            <ProductArchitecture>x86</ProductArchitecture>
-        </InstallationTarget>
-        <InstallationTarget Id="Microsoft.VisualStudio.Enterprise" Version="[16.0, 17.0)">
-            <ProductArchitecture>x86</ProductArchitecture>
-        </InstallationTarget>
-        
-        <!-- VS 2022 and later (64-bit) -->
         <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0, 18.0)">
             <ProductArchitecture>amd64</ProductArchitecture>
         </InstallationTarget>
@@ -37,7 +25,7 @@
         <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.7.2,)" />
     </Dependencies>
     <Prerequisites>
-        <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[16.0,)" DisplayName="Visual Studio core editor" />
+        <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[17.0,)" DisplayName="Visual Studio core editor" />
     </Prerequisites>
     <Assets>
         <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
