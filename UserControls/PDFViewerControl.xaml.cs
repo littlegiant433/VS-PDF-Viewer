@@ -1,12 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Windows.Controls;
 
 namespace VS_PDF_Viewer.UserControls
 {
-    internal class PDFViewerControl
+    /// <summary>
+    /// WPF user control that provides PDF viewing functionality within Visual Studio editor panes.
+    /// </summary>
+    public partial class PDFViewerControl : UserControl
     {
+        /// <summary>
+        /// Initializes a new instance of the PDF viewer control.
+        /// </summary>
+        public PDFViewerControl()
+        {
+            InitializeComponent();
+        }
     }
 }
