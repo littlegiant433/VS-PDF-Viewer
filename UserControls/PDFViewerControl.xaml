@@ -1,7 +1,8 @@
 <UserControl x:Class="VS_PDF_Viewer.UserControls.PDFViewerControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:wf="clr-namespace:System.Windows.Forms.Integration;assembly=WindowsFormsIntegration">
     <Grid>
-        <TextBlock Text="TEST" FontSize="20" />
+        <wf:WindowsFormsHost Name="windowsFormsHost" />
     </Grid>
 </UserControl>

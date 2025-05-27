@@ -17,6 +17,8 @@
     <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[17.0,18.0)" DisplayName="Visual Studio core editor" />
   </Prerequisites>
   <Assets>
+    <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="File" Path="x64\pdfium.dll" />
+    <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="File" Path="x86\pdfium.dll" />
     <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
   </Assets>
 </PackageManifest>

@@ -23,14 +23,26 @@ namespace VS_PDF_Viewer.EditorFactories
         private bool isDirty = false;
 
         /// <summary>
+        /// Reference to our PDF viewer control
+        /// </summary>
+        private VS_PDF_Viewer.UserControls.PDFViewerControl pdfViewerControl;
+
+        /// <summary>
         /// Initializes a new PDF editor pane with the specified file name.
         /// </summary>
         /// <param name="fileName">The path to the PDF file to display.</param>
         public PDFEditorPane(string fileName) : base(null)
         {
             this.fileName = fileName;
-            // Hier wird Ihr WPF Control geladen
-            this.Content = new VS_PDF_Viewer.UserControls.PDFViewerControl();
+            // Create and load the WPF Control
+            pdfViewerControl = new VS_PDF_Viewer.UserControls.PDFViewerControl();
+            this.Content = pdfViewerControl;
+
+            // Load the PDF file
+            if (!string.IsNullOrEmpty(fileName))
+            {
+                pdfViewerControl.LoadPdf(fileName);
+            }
         }
 
         /// <summary>
@@ -73,6 +85,11 @@ namespace VS_PDF_Viewer.EditorFactories
         public int LoadDocData(string pszMkDocument)
         {
             fileName = pszMkDocument;
+            // Load the PDF when document data is loaded
+            if (pdfViewerControl != null && !string.IsNullOrEmpty(fileName))
+            {
+                pdfViewerControl.LoadPdf(fileName);
+            }
             return VSConstants.S_OK;
         }
 
@@ -121,6 +138,12 @@ namespace VS_PDF_Viewer.EditorFactories
         /// <returns>S_OK indicating successful rename operation.</returns>
         public int RenameDocData(uint grfAttribs, IVsHierarchy pHierNew, uint itemidNew, string pszMkDocumentNew)
         {
+            fileName = pszMkDocumentNew;
+            // Reload the PDF with new name
+            if (pdfViewerControl != null && !string.IsNullOrEmpty(fileName))
+            {
+                pdfViewerControl.LoadPdf(fileName);
+            }
             return VSConstants.S_OK;
         }
 
@@ -142,6 +165,11 @@ namespace VS_PDF_Viewer.EditorFactories
         /// <returns>S_OK indicating successful reload.</returns>
         public int ReloadDocData(uint grfFlags)
         {
+            // Reload the PDF
+            if (pdfViewerControl != null && !string.IsNullOrEmpty(fileName))
+            {
+                pdfViewerControl.LoadPdf(fileName);
+            }
             return VSConstants.S_OK;
         }
     }
