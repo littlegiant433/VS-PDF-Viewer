@@ -3,6 +3,62 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:wf="clr-namespace:System.Windows.Forms.Integration;assembly=WindowsFormsIntegration">
     <Grid>
-        <wf:WindowsFormsHost Name="windowsFormsHost" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Navigation Bar -->
+        <Border Grid.Row="0" Background="#F0F0F0" BorderBrush="#CCCCCC" BorderThickness="0,0,0,1">
+            <Grid>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <!-- First Page Button -->
+                    <Button Name="btnFirstPage" Content="|&lt;" Width="30" Height="26" Margin="2" 
+                            ToolTip="First Page" Click="BtnFirstPage_Click" FontSize="12" FontFamily="Consolas"/>
+
+                    <!-- Previous Page Button -->
+                    <Button Name="btnPreviousPage" Content="&lt;" Width="30" Height="26" Margin="2" 
+                            ToolTip="Previous Page" Click="BtnPreviousPage_Click" FontSize="12" FontFamily="Consolas"/>
+
+                    <!-- Page Number Input -->
+                    <TextBox Name="txtCurrentPage" Width="50" Height="26" Margin="2" 
+                             TextAlignment="Center" VerticalContentAlignment="Center"
+                             PreviewTextInput="TxtCurrentPage_PreviewTextInput"
+                             KeyDown="TxtCurrentPage_KeyDown"/>
+
+                    <!-- Page Count Label -->
+                    <Label Name="lblPageCount" Content="/ 0" VerticalAlignment="Center" Margin="0,0,5,0"/>
+
+                    <!-- Next Page Button -->
+                    <Button Name="btnNextPage" Content="&gt;" Width="30" Height="26" Margin="2" 
+                            ToolTip="Next Page" Click="BtnNextPage_Click" FontSize="12" FontFamily="Consolas"/>
+
+                    <!-- Last Page Button -->
+                    <Button Name="btnLastPage" Content="&gt;|" Width="30" Height="26" Margin="2" 
+                            ToolTip="Last Page" Click="BtnLastPage_Click" FontSize="12" FontFamily="Consolas"/>
+
+                    <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" Margin="10,0"/>
+
+                    <!-- Zoom Controls -->
+                    <Button Name="btnZoomOut" Content="-" Width="30" Height="26" Margin="2" 
+                            ToolTip="Zoom Out" Click="BtnZoomOut_Click" FontSize="16" FontWeight="Bold"/>
+
+                    <Label Name="lblZoomLevel" Content="100%" Width="50" 
+                           HorizontalContentAlignment="Center" VerticalAlignment="Center"/>
+
+                    <Button Name="btnZoomIn" Content="+" Width="30" Height="26" Margin="2" 
+                            ToolTip="Zoom In" Click="BtnZoomIn_Click" FontSize="16" FontWeight="Bold"/>
+
+                    <Button Name="btnFitToWidth" Content="Fit Width" Width="70" Height="26" Margin="2" 
+                            ToolTip="Fit to Width" Click="BtnFitToWidth_Click" FontSize="12"/>
+
+                    <Button Name="btnFitToPage" Content="Fit Page" Width="70" Height="26" Margin="2" 
+                            ToolTip="Fit to Page" Click="BtnFitToPage_Click" FontSize="12"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <!-- PDF Viewer Host -->
+        <wf:WindowsFormsHost Name="windowsFormsHost" Grid.Row="1"/>
     </Grid>
 </UserControl>
